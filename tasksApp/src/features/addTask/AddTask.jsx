@@ -1,20 +1,14 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { setTaskTitle, setDescription } from "./addTaskSlice"
+import { useDispatch } from "react-redux"
+import { setTask } from "./addTaskSlice"
 
 const AddTask = () => {
-  const taskTitle = useSelector((state) => state.addTask)
   const dispatch = useDispatch()
   const [title, setTitle] = useState("")
-  const [dec, setDes] = useState("")
+  const [des, setDes] = useState("")
 
-  console.log("-----taskTitle----", taskTitle)
-  // function handleSubmit(e) {
-  //   e.preventDefault()
-  //   setTaskTitle("")
-  //   setDescription("")
-  // }
-  // onSubmit={handleSubmit}
+  // console.log("-----taskTitle----", taskTitle)
+
   return (
     <>
       <div className="container flex flex-col pt-4 items-center justify-center w-full">
@@ -30,6 +24,7 @@ const AddTask = () => {
             <input
               type="text"
               name="task-title"
+              autoComplete="off"
               className="form-input rounded-lg px-4 py-3 my-2 w-full bg-black text-white border border-orange-500 focus:border-green-600 "
               placeholder="Add Task Title"
               value={title}
@@ -43,7 +38,7 @@ const AddTask = () => {
             <textarea
               className="	form-textarea rounded-lg px-4 py-3 my-2 w-full bg-black text-white border border-orange-500 active:border active:border-orange-500"
               name="description"
-              value={dec}
+              value={des}
               placeholder="Add description"
               onChange={(e) => setDes(e.target.value)}
             ></textarea>
@@ -51,7 +46,7 @@ const AddTask = () => {
           <button
             type="submit"
             className="bg-orange-500 rounded-lg border border-orange-500 text-white font-medium text-xl px-4 py-3 my-2 w-full"
-            onClick={() => dispatch(setTaskTitle({ title, dec }))}
+            onClick={() => dispatch(setTask({ title, des }))}
           >
             Add Task
           </button>

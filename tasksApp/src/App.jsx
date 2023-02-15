@@ -1,5 +1,6 @@
 // import "./App.css"
 import AddTask from "./features/addTask/AddTask"
+import AllTasks from "./features/AllTasks/AllTasks"
 function App() {
   return (
     <>
@@ -9,9 +10,9 @@ function App() {
         <div className="bg-[#121212] rounded-2xl w-full py-6">
           <AddTask />
         </div>
-        {/* <div className="bg-[#121212] rounded-2xl py-6 mx-auto my-3">
-          <AllTasks taskTitle={taskTitle} description={description} />
-        </div> */}
+        <div className="bg-[#121212] rounded-2xl py-6 mx-auto my-3">
+          <AllTasks />
+        </div>
       </div>
     </>
   )

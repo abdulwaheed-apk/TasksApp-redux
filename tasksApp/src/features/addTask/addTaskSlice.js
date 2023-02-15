@@ -7,15 +7,15 @@ export const addTaskSlice = createSlice({
     description: "",
   },
   reducers: {
-    setTaskTitle: (state, action) => {
-      console.log("----action----", action.payload)
+    setTask: (state, action) => {
+      // console.log("----action----", action.payload)
       state.taskTitle = action.payload.title
-    },
-    setDescription: (state) => {
-      return state.description
+      state.description = action.payload.des
+      // console.log("----task title----", state.taskTitle)
+      // console.log("----Description----", state.description)
     },
   },
 })
 
-export const { setTaskTitle, setDescription } = addTaskSlice.actions
+export const { setTask } = addTaskSlice.actions
 export default addTaskSlice.reducer
